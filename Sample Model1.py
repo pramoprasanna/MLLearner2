@@ -14,6 +14,10 @@ import pickle
 
 # SOURCING DATA
 housing = fetch_california_housing()
+print(housing.target_names)
+print(housing.feature_names)
+print(housing.data[0])
+
 """ print(housing.keys())
     print(housing.data)
     print(housing.target)
@@ -66,6 +70,8 @@ X_Train, X_Test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.3)
 scaler = StandardScaler()
 X_Train = scaler.fit_transform(X_Train)
 X_Test = scaler.transform(X_Test)
+
+pickle.dump(scaler,open('scaling.pkl','wb'))
 
 #MODEL BUILDING
 regression = LinearRegression()
